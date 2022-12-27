@@ -4,18 +4,30 @@
   </div>
 <% end %>
 
+<% if user_signed_in? %>
+  <%= link_to 'Sign Out', destroy_user_session_path, data: {turbo_method: :delete} %>
+<% else %>
+  <%= link_to "Sign in", new_user_session_path %>
+  <%= link_to "Sign up", new_user_registration_path %>
+<% end %>
+
+<br />
 <br />
 
-<%= link_to "New File", new_resume_path, class: "btn btn-primary" %>
-<br />
-<br />
+<% if user_signed_in? %>
+  <%= link_to "New File", new_resume_path, class: "btn btn-primary" %>
+  <br />
+  <br />
+<% end %>
 
 <table class = "table table-bordered table-striped">
   <thead>.
   <tr>
     <th>Name</th>
     <th>Download Link</th>
-    <th> </th>
+    <% if user_signed_in? %>
+      <th> </th>
+    <% end %>
   </tr>
   </thead>
 
@@ -25,7 +37,9 @@
     <tr>
       <td><%= resume.name %></td>
       <td><%= link_to "Download File", resume.attachment_url %></td>
-      <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
+      <% if user_signed_in? %>
+        <td><%= button_to "Delete",  resume, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{resume.name}?" %></td>
+      <% end %>
     </tr>
 
   <% end %>

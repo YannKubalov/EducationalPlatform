@@ -59,6 +59,12 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # Для авторизации через devise
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  # Для перехвата сообщений подтверждения регистрации
+  config.action_mailer.delivery_method = :letter_opener
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 
