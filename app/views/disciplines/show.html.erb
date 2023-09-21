@@ -1,10 +1,12 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @discipline %>
+<h1><%= @discipline.name %></h1>
 
-<div>
-  <%= link_to "Edit this discipline", edit_discipline_path(@discipline) %> |
-  <%= link_to "Back to disciplines", disciplines_path %>
+<p><%= @discipline.description %></p>
 
-  <%= button_to "Destroy this discipline", @discipline, method: :delete %>
-</div>
+<p>
+  <%= link_to 'Редактировать', edit_discipline_path(@discipline) %> |
+  <%= link_to 'Удалить', @discipline, method: :delete, data: { confirm: 'Вы уверены?' } %> |
+  <%= link_to 'Список материалов', discipline_materials_path(@discipline) %>
+</p>
+
+<%= link_to 'Вернуться к списку дисциплин', disciplines_path %>

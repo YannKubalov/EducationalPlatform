@@ -1,0 +1,625 @@
+Started GET "/" for 127.0.0.1 at 2023-09-21 23:16:49 +0300
+  [1m[35m (11.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (11.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20230921172959_create_disciplines.rb
+
+
+):
+  
+activerecord (7.0.8) lib/active_record/migration.rb:662:in `check_pending!'
+activerecord (7.0.8) lib/active_record/migration.rb:627:in `block (2 levels) in call'
+activesupport (7.0.8) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.8) lib/active_record/migration.rb:632:in `block in call'
+activerecord (7.0.8) lib/active_record/migration.rb:624:in `synchronize'
+activerecord (7.0.8) lib/active_record/migration.rb:624:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDisciplines (20230921172959)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "disciplines" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "duration" integer, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230921172959"]]
+  [1m[36mTRANSACTION (19.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-09-21 20:17:16.979670"], ["updated_at", "2023-09-21 20:17:16.979670"]]
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-09-21 23:17:19 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/artemka/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/artemka/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.0.8/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 284)
+Completed 200 OK in 6ms (Views: 2.7ms | ActiveRecord: 0.0ms | Allocations: 2836)
+
+
+Started GET "/disciplines" for 127.0.0.1 at 2023-09-21 23:17:24 +0300
+Processing by DisciplinesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/index.html.erb within layouts/application
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines"[0m
+  ↳ app/views/disciplines/index.html.erb:6
+  Rendered disciplines/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1234)
+  Rendered layout layouts/application.html.erb (Duration: 145.1ms | Allocations: 71559)
+Completed 200 OK in 148ms (Views: 146.0ms | ActiveRecord: 0.1ms | Allocations: 73225)
+
+
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMaterials (20230921201817)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "materials" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b88d42c9a"
+FOREIGN KEY ("discipline_id")
+  REFERENCES "disciplines" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_materials_on_discipline_id" ON "materials" ("discipline_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230921201817"]]
+  [1m[36mTRANSACTION (8.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddFileToMaterials (20230921201950)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFileToMaterials (20230921201950)
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFileToMaterials (20230921201950)
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "materials" ADD "file_file_name" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "materials" ADD "file_content_type" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "materials" ADD "file_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "materials" ADD "file_updated_at" datetime(6)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230921201950"]]
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/disciplines/new" for 127.0.0.1 at 2023-09-21 23:36:47 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DisciplinesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/new.html.erb within layouts/application
+  Rendered disciplines/_form.html.erb (Duration: 4.8ms | Allocations: 3379)
+  Rendered disciplines/new.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3695)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | Allocations: 4916)
+Completed 200 OK in 18ms (Views: 7.5ms | ActiveRecord: 0.4ms | Allocations: 12099)
+
+
+Started POST "/disciplines" for 127.0.0.1 at 2023-09-21 23:37:04 +0300
+Processing by DisciplinesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "discipline"=>{"name"=>"qw", "duration"=>"213", "description"=>"qweqwe"}, "commit"=>"Create Discipline"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/disciplines_controller.rb:27:in `block in create'
+  [1m[36mDiscipline Create (0.2ms)[0m  [1m[32mINSERT INTO "disciplines" ("name", "duration", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "qw"], ["duration", 213], ["description", "qweqwe"], ["created_at", "2023-09-21 20:37:04.020812"], ["updated_at", "2023-09-21 20:37:04.020812"]]
+  ↳ app/controllers/disciplines_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/disciplines_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/disciplines/1
+Completed 302 Found in 11ms (ActiveRecord: 6.4ms | Allocations: 3873)
+
+
+Started GET "/disciplines/1" for 127.0.0.1 at 2023-09-21 23:37:04 +0300
+Processing by DisciplinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/disciplines_controller.rb:63:in `set_discipline'
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/show.html.erb within layouts/application
+  Rendered disciplines/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 432)
+  Rendered layout layouts/application.html.erb (Duration: 2.0ms | Allocations: 1573)
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 4206)
+
+
+Started GET "/disciplines/1/materials" for 127.0.0.1 at 2023-09-21 23:37:06 +0300
+Processing by MaterialsController#index as HTML
+  Parameters: {"discipline_id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms | Allocations: 7205)
+
+
+  
+NameError (Rails couldn't find a valid model for Material association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.):
+  
+app/controllers/materials_controller.rb:6:in `index'
+Started GET "/disciplines/1/materials" for 127.0.0.1 at 2023-09-21 23:38:52 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MaterialsController#index as HTML
+  Parameters: {"discipline_id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+  Rendering layout layouts/application.html.erb
+  Rendering materials/index.html.erb within layouts/application
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT "materials".* FROM "materials" WHERE "materials"."discipline_id" = ?[0m  [["discipline_id", 1]]
+  ↳ app/views/materials/index.html.erb:4
+  Rendered materials/index.html.erb within layouts/application (Duration: 5.4ms | Allocations: 3636)
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | Allocations: 24149)
+Completed 200 OK in 72ms (Views: 36.9ms | ActiveRecord: 0.7ms | Allocations: 39603)
+
+
+Started GET "/disciplines/1" for 127.0.0.1 at 2023-09-21 23:39:01 +0300
+Processing by DisciplinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/disciplines_controller.rb:63:in `set_discipline'
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/show.html.erb within layouts/application
+  Rendered disciplines/show.html.erb within layouts/application (Duration: 9.4ms | Allocations: 476)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 1692)
+Completed 200 OK in 13ms (Views: 12.1ms | ActiveRecord: 0.1ms | Allocations: 2921)
+
+
+Started GET "/disciplines" for 127.0.0.1 at 2023-09-21 23:39:06 +0300
+Processing by DisciplinesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/index.html.erb within layouts/application
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines"[0m
+  ↳ app/views/disciplines/index.html.erb:6
+  Rendered disciplines/_discipline.html.erb (Duration: 0.4ms | Allocations: 223)
+  Rendered disciplines/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1814)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2789)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.1ms | Allocations: 3139)
+
+
+Started GET "/disciplines/1" for 127.0.0.1 at 2023-09-21 23:39:09 +0300
+Processing by DisciplinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/disciplines_controller.rb:63:in `set_discipline'
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/show.html.erb within layouts/application
+  Rendered disciplines/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 184)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1315)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2069)
+
+
+Started GET "/disciplines/1/materials" for 127.0.0.1 at 2023-09-21 23:39:12 +0300
+Processing by MaterialsController#index as HTML
+  Parameters: {"discipline_id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+  Rendering layout layouts/application.html.erb
+  Rendering materials/index.html.erb within layouts/application
+  [1m[36mMaterial Load (0.0ms)[0m  [1m[34mSELECT "materials".* FROM "materials" WHERE "materials"."discipline_id" = ?[0m  [["discipline_id", 1]]
+  ↳ app/views/materials/index.html.erb:4
+  Rendered materials/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 721)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1834)
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.1ms | Allocations: 2619)
+
+
+Started GET "/disciplines/1/materials/new" for 127.0.0.1 at 2023-09-21 23:39:20 +0300
+Processing by MaterialsController#new as HTML
+  Parameters: {"discipline_id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+  Rendering layout layouts/application.html.erb
+  Rendering materials/new.html.erb within layouts/application
+  Rendered materials/_form.html.erb (Duration: 4.6ms | Allocations: 3104)
+  Rendered materials/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 3398)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 4358)
+Completed 200 OK in 19ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 16844)
+
+
+Started POST "/disciplines/1/materials" for 127.0.0.1 at 2023-09-21 23:39:48 +0300
+Processing by MaterialsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "material"=>{"name"=>"qweqweq", "description"=>"qweqweqwe", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f0b0b918490 @tempfile=#<Tempfile:/tmp/RackMultipart20230921-33823-ntwxdw.pdf>, @content_type="application/pdf", @original_filename="Подходы к управлению.pdf", @headers="Content-Disposition: form-data; name=\"material[file]\"; filename=\"Подходы к управлению.pdf\"\r\nContent-Type: application/pdf\r\n">}, "commit"=>"Create Material", "discipline_id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+[paperclip] Trying to link /tmp/RackMultipart20230921-33823-ntwxdw.pdf to /tmp/8c14fd8460f16f366a2a90058d8031f920230921-33823-g79jxo.pdf
+[paperclip] Trying to link /tmp/8c14fd8460f16f366a2a90058d8031f920230921-33823-g79jxo.pdf to /tmp/3d480eea72cb4809e87f87e9167c4d0a20230921-33823-f1se2e.pdf
+Command :: file -b --mime '/tmp/3d480eea72cb4809e87f87e9167c4d0a20230921-33823-f1se2e.pdf'
+[paperclip] Trying to link /tmp/8c14fd8460f16f366a2a90058d8031f920230921-33823-g79jxo.pdf to /tmp/3d480eea72cb4809e87f87e9167c4d0a20230921-33823-d0l2q6.pdf
+Command :: file -b --mime '/tmp/3d480eea72cb4809e87f87e9167c4d0a20230921-33823-d0l2q6.pdf'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/materials_controller.rb:22:in `create'
+  [1m[36mMaterial Create (0.2ms)[0m  [1m[32mINSERT INTO "materials" ("name", "description", "discipline_id", "created_at", "updated_at", "file_file_name", "file_content_type", "file_file_size", "file_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "qweqweq"], ["description", "qweqweqwe"], ["discipline_id", 1], ["created_at", "2023-09-21 20:39:48.018110"], ["updated_at", "2023-09-21 20:39:48.018110"], ["file_file_name", "Подходы_к_управлению.pdf"], ["file_content_type", "application/pdf"], ["file_file_size", 143125], ["file_updated_at", "2023-09-21 20:39:48.012432"]]
+  ↳ app/controllers/materials_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/materials_controller.rb:22:in `create'
+Redirected to http://127.0.0.1:3000/disciplines/1/materials/1
+Completed 302 Found in 20ms (ActiveRecord: 6.9ms | Allocations: 7903)
+
+
+Started GET "/disciplines/1/materials/1" for 127.0.0.1 at 2023-09-21 23:39:48 +0300
+Processing by MaterialsController#show as HTML
+  Parameters: {"discipline_id"=>"1", "id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+  [1m[36mMaterial Load (0.1ms)[0m  [1m[34mSELECT "materials".* FROM "materials" WHERE "materials"."discipline_id" = ? AND "materials"."id" = ? LIMIT ?[0m  [["discipline_id", 1], ["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:49:in `set_material'
+  Rendering layout layouts/application.html.erb
+  Rendering materials/show.html.erb within layouts/application
+  Rendered materials/show.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1705)
+  Rendered layout layouts/application.html.erb (Duration: 1.8ms | Allocations: 1792)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.2ms | Allocations: 3522)
+
+
+  
+ActionView::Template::Error (undefined method `escape' for URI:Module):
+     8: </p>
+     9: 
+    10: <p>
+    11:   <%= link_to 'Скачать файл', @material.file_url, target: '_blank' %>
+    12: </p>
+    13: 
+    14: <p>
+  
+app/models/material.rb:8:in `file_url'
+app/views/materials/show.html.erb:11
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddFileToMaterials (20230921201950)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amaterials" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "file_file_name" varchar DEFAULT NULL, "file_content_type" varchar DEFAULT NULL, "file_file_size" integer DEFAULT NULL, "file_updated_at" datetime(6) DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_amaterials_on_discipline_id" ON "amaterials" ("discipline_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "amaterials" ("id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type","file_file_size","file_updated_at")
+                     SELECT "id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type","file_file_size","file_updated_at" FROM "materials"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "materials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "materials" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "file_file_name" varchar DEFAULT NULL, "file_content_type" varchar DEFAULT NULL, "file_file_size" integer DEFAULT NULL, CONSTRAINT "fk_rails_5b88d42c9a"
+FOREIGN KEY ("discipline_id")
+  REFERENCES "disciplines" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_materials_on_discipline_id" ON "materials" ("discipline_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "materials" ("id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type","file_file_size")
+                     SELECT "id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type","file_file_size" FROM "amaterials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "amaterials"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amaterials" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "file_file_name" varchar DEFAULT NULL, "file_content_type" varchar DEFAULT NULL, "file_file_size" integer DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_amaterials_on_discipline_id" ON "amaterials" ("discipline_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "amaterials" ("id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type","file_file_size")
+                     SELECT "id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type","file_file_size" FROM "materials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "materials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "materials" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "file_file_name" varchar DEFAULT NULL, "file_content_type" varchar DEFAULT NULL, CONSTRAINT "fk_rails_5b88d42c9a"
+FOREIGN KEY ("discipline_id")
+  REFERENCES "disciplines" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_materials_on_discipline_id" ON "materials" ("discipline_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "materials" ("id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type")
+                     SELECT "id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type" FROM "amaterials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "amaterials"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amaterials" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "file_file_name" varchar DEFAULT NULL, "file_content_type" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_amaterials_on_discipline_id" ON "amaterials" ("discipline_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "amaterials" ("id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type")
+                     SELECT "id","name","description","discipline_id","created_at","updated_at","file_file_name","file_content_type" FROM "materials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "materials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "materials" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "file_file_name" varchar DEFAULT NULL, CONSTRAINT "fk_rails_5b88d42c9a"
+FOREIGN KEY ("discipline_id")
+  REFERENCES "disciplines" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_materials_on_discipline_id" ON "materials" ("discipline_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "materials" ("id","name","description","discipline_id","created_at","updated_at","file_file_name")
+                     SELECT "id","name","description","discipline_id","created_at","updated_at","file_file_name" FROM "amaterials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "amaterials"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amaterials" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "file_file_name" varchar DEFAULT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_amaterials_on_discipline_id" ON "amaterials" ("discipline_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "amaterials" ("id","name","description","discipline_id","created_at","updated_at","file_file_name")
+                     SELECT "id","name","description","discipline_id","created_at","updated_at","file_file_name" FROM "materials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "materials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "materials" ("id" integer NOT NULL PRIMARY KEY, "name" varchar DEFAULT NULL, "description" text DEFAULT NULL, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b88d42c9a"
+FOREIGN KEY ("discipline_id")
+  REFERENCES "disciplines" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_materials_on_discipline_id" ON "materials" ("discipline_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "materials" ("id","name","description","discipline_id","created_at","updated_at")
+                     SELECT "id","name","description","discipline_id","created_at","updated_at" FROM "amaterials"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "amaterials"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230921201950"]]
+  [1m[36mTRANSACTION (7.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMaterials (20230921201817)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "materials"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20230921201817"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMaterials (20230921201817)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "materials" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b88d42c9a"
+FOREIGN KEY ("discipline_id")
+  REFERENCES "disciplines" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_materials_on_discipline_id" ON "materials" ("discipline_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230921201817"]]
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddFileToMaterials (20230921201950)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mALTER TABLE "materials" ADD "file_file_name" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "materials" ADD "file_content_type" varchar[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "materials" ADD "file_file_size" integer[0m
+  [1m[35m (0.1ms)[0m  [1m[35mALTER TABLE "materials" ADD "file_updated_at" datetime(6)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230921201950"]]
+  [1m[36mTRANSACTION (5.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBooks (20230921204243)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "author" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230921204243"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/disciplines/1/materials" for 127.0.0.1 at 2023-09-21 23:44:24 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MaterialsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "material"=>{"name"=>"qweqweq", "description"=>"qweqweqwe", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007fb2d63a4158 @tempfile=#<Tempfile:/tmp/RackMultipart20230921-35996-4qf0do.pdf>, @content_type="application/pdf", @original_filename="Подходы к управлению.pdf", @headers="Content-Disposition: form-data; name=\"material[file]\"; filename=\"Подходы к управлению.pdf\"\r\nContent-Type: application/pdf\r\n">}, "commit"=>"Create Material", "discipline_id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 0.4ms | Allocations: 15768)
+
+
+  
+NameError (Rails couldn't find a valid model for Material association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.):
+  
+app/controllers/materials_controller.rb:20:in `create'
+Started GET "/disciplines/1/materials" for 127.0.0.1 at 2023-09-21 23:44:35 +0300
+Processing by MaterialsController#index as HTML
+  Parameters: {"discipline_id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 2515)
+
+
+  
+NameError (Rails couldn't find a valid model for Material association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.):
+  
+app/controllers/materials_controller.rb:6:in `index'
+Started GET "/disciplines" for 127.0.0.1 at 2023-09-21 23:44:40 +0300
+Processing by DisciplinesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/index.html.erb within layouts/application
+  [1m[36mDiscipline Load (0.2ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines"[0m
+  ↳ app/views/disciplines/index.html.erb:6
+  Rendered disciplines/_discipline.html.erb (Duration: 0.4ms | Allocations: 239)
+  Rendered disciplines/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1853)
+  Rendered layout layouts/application.html.erb (Duration: 32.2ms | Allocations: 21639)
+Completed 200 OK in 34ms (Views: 33.1ms | ActiveRecord: 0.2ms | Allocations: 22732)
+
+
+Started GET "/disciplines/1" for 127.0.0.1 at 2023-09-21 23:44:43 +0300
+Processing by DisciplinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/disciplines_controller.rb:63:in `set_discipline'
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/show.html.erb within layouts/application
+  Rendered disciplines/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 414)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1552)
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.1ms | Allocations: 2390)
+
+
+Started GET "/disciplines/1/materials" for 127.0.0.1 at 2023-09-21 23:44:45 +0300
+Processing by MaterialsController#index as HTML
+  Parameters: {"discipline_id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.1ms | Allocations: 8586)
+
+
+  
+NameError (Rails couldn't find a valid model for Material association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.):
+  
+app/controllers/materials_controller.rb:6:in `index'
+Started GET "/disciplines/1" for 127.0.0.1 at 2023-09-21 23:48:15 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mCACHE ActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20230921204717_create_materials.rb
+
+
+):
+  
+activerecord (7.0.8) lib/active_record/migration.rb:662:in `check_pending!'
+activerecord (7.0.8) lib/active_record/migration.rb:627:in `block (2 levels) in call'
+activesupport (7.0.8) lib/active_support/file_update_checker.rb:83:in `execute'
+activerecord (7.0.8) lib/active_record/migration.rb:632:in `block in call'
+activerecord (7.0.8) lib/active_record/migration.rb:624:in `synchronize'
+activerecord (7.0.8) lib/active_record/migration.rb:624:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.8) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.8) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/show_exceptions.rb:29:in `call'
+railties (7.0.8) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (7.0.8) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (7.0.8) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.8) lib/rack/method_override.rb:24:in `call'
+rack (2.2.8) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.8) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:61:in `block in call'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:26:in `collect_events'
+actionpack (7.0.8) lib/action_dispatch/middleware/server_timing.rb:60:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.8) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.8) lib/action_dispatch/middleware/host_authorization.rb:138:in `call'
+railties (7.0.8) lib/rails/engine.rb:530:in `call'
+puma (5.6.7) lib/puma/configuration.rb:252:in `call'
+puma (5.6.7) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.7) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.7) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.7) lib/puma/server.rb:443:in `process_client'
+puma (5.6.7) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateMaterials (20230921204717)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (6.3ms)[0m  [1m[35mCREATE TABLE "materials" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b88d42c9a"
+FOREIGN KEY ("discipline_id")
+  REFERENCES "disciplines" ("id")
+)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (7.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateDisciplines (20230921172959)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "disciplines" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "duration" integer, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230921172959"]]
+  [1m[36mTRANSACTION (7.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateBooks (20230921204243)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "books" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "author" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230921204243"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateMaterials (20230921204717)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "materials" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "description" text, "discipline_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5b88d42c9a"
+FOREIGN KEY ("discipline_id")
+  REFERENCES "disciplines" ("id")
+)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_materials_on_discipline_id" ON "materials" ("discipline_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20230921204717"]]
+  [1m[36mTRANSACTION (7.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2023-09-21 20:48:44.384281"], ["updated_at", "2023-09-21 20:48:44.384281"]]
+  [1m[36mTRANSACTION (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/disciplines" for 127.0.0.1 at 2023-09-21 23:48:50 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DisciplinesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/index.html.erb within layouts/application
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines"[0m
+  ↳ app/views/disciplines/index.html.erb:6
+  Rendered disciplines/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1388)
+  Rendered layout layouts/application.html.erb (Duration: 31.2ms | Allocations: 21438)
+Completed 200 OK in 38ms (Views: 32.3ms | ActiveRecord: 0.1ms | Allocations: 25403)
+
+
+Started GET "/disciplines/new" for 127.0.0.1 at 2023-09-21 23:48:52 +0300
+Processing by DisciplinesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/new.html.erb within layouts/application
+  Rendered disciplines/_form.html.erb (Duration: 3.6ms | Allocations: 2664)
+  Rendered disciplines/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 2962)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 3930)
+Completed 200 OK in 11ms (Views: 5.7ms | ActiveRecord: 0.3ms | Allocations: 8474)
+
+
+Started POST "/disciplines" for 127.0.0.1 at 2023-09-21 23:49:00 +0300
+Processing by DisciplinesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "discipline"=>{"name"=>"wqeqwe", "duration"=>"1231", "description"=>"qweqwe"}, "commit"=>"Create Discipline"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/disciplines_controller.rb:27:in `block in create'
+  [1m[36mDiscipline Create (0.2ms)[0m  [1m[32mINSERT INTO "disciplines" ("name", "duration", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "wqeqwe"], ["duration", 1231], ["description", "qweqwe"], ["created_at", "2023-09-21 20:49:00.707575"], ["updated_at", "2023-09-21 20:49:00.707575"]]
+  ↳ app/controllers/disciplines_controller.rb:27:in `block in create'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/disciplines_controller.rb:27:in `block in create'
+Redirected to http://127.0.0.1:3000/disciplines/1
+Completed 302 Found in 10ms (ActiveRecord: 6.1ms | Allocations: 3873)
+
+
+Started GET "/disciplines/1" for 127.0.0.1 at 2023-09-21 23:49:00 +0300
+Processing by DisciplinesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/disciplines_controller.rb:63:in `set_discipline'
+  Rendering layout layouts/application.html.erb
+  Rendering disciplines/show.html.erb within layouts/application
+  Rendered disciplines/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 432)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1568)
+Completed 200 OK in 5ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 4147)
+
+
+Started GET "/disciplines/1/materials" for 127.0.0.1 at 2023-09-21 23:49:10 +0300
+Processing by MaterialsController#index as HTML
+  Parameters: {"discipline_id"=>"1"}
+  [1m[36mDiscipline Load (0.1ms)[0m  [1m[34mSELECT "disciplines".* FROM "disciplines" WHERE "disciplines"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/materials_controller.rb:45:in `set_discipline'
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.1ms | Allocations: 6166)
+
+
+  
+NameError (Rails couldn't find a valid model for Material association. Please provide the :class_name option on the association declaration. If :class_name is already provided, make sure it's an ActiveRecord::Base subclass.):
+  
+app/controllers/materials_controller.rb:6:in `index'

@@ -1,0 +1,17 @@
+<h1>Список материалов для дисциплины "<%= @discipline.name %>"</h1>
+ 
+<ul>
+  <% @materials.each do |material| %>
+    <li>
+      <%= link_to material.name, discipline_material_path(@discipline, material) %>
+      (<%= link_to 'Редактировать', edit_discipline_material_path(@discipline, material) %>)
+      (<%= link_to 'Удалить', discipline_material_path(@discipline, material), method: :delete, data: { confirm: 'Вы уверены?' } %>)
+    </li>
+  <% end %>
+</ul>
+ 
+<p>
+  <%= link_to 'Создать новый материал', new_discipline_material_path(@discipline) %>
+</p>
+ 
+<%= link_to 'Вернуться к дисциплине', discipline_path(@discipline) %>

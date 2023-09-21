@@ -1,0 +1,32 @@
+<%= form_with(model: [@discipline, @material], local: true) do |form| %>
+  <% if @material.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@material.errors.count, "ошибка") %> запрещают сохранение данного материала:</h2>
+ 
+      <ul>
+        <% @material.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :material_name %>
+  </div>
+ 
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :material_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :file %>
+    <%= form.file_field :file %>
+  </div>
+ 
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
